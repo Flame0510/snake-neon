@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" fill="#02020a" rx="80"/>
+
+  <!-- Subtle grid -->
+  <g stroke="rgba(255,255,255,0.04)" stroke-width="1">
+    <line x1="0" y1="64"  x2="512" y2="64"/>
+    <line x1="0" y1="128" x2="512" y2="128"/>
+    <line x1="0" y1="192" x2="512" y2="192"/>
+    <line x1="0" y1="256" x2="512" y2="256"/>
+    <line x1="0" y1="320" x2="512" y2="320"/>
+    <line x1="0" y1="384" x2="512" y2="384"/>
+    <line x1="0" y1="448" x2="512" y2="448"/>
+    <line x1="64"  y1="0" x2="64"  y2="512"/>
+    <line x1="128" y1="0" x2="128" y2="512"/>
+    <line x1="192" y1="0" x2="192" y2="512"/>
+    <line x1="256" y1="0" x2="256" y2="512"/>
+    <line x1="320" y1="0" x2="320" y2="512"/>
+    <line x1="384" y1="0" x2="384" y2="512"/>
+    <line x1="448" y1="0" x2="448" y2="512"/>
+  </g>
+
+  <!-- Snake body segments (pixel-art S shape) -->
+  <g fill="#00ff88" filter="url(#glow)">
+    <!-- Top row -->
+    <rect x="160" y="128" width="64" height="64" rx="14"/>
+    <rect x="224" y="128" width="64" height="64" rx="14"/>
+    <rect x="288" y="128" width="64" height="64" rx="14"/>
+    <!-- Left side going down -->
+    <rect x="160" y="192" width="64" height="64" rx="14"/>
+    <!-- Middle row -->
+    <rect x="160" y="256" width="64" height="64" rx="14"/>
+    <rect x="224" y="256" width="64" height="64" rx="14"/>
+    <rect x="288" y="256" width="64" height="64" rx="14"/>
+    <!-- Right side going down -->
+    <rect x="288" y="320" width="64" height="64" rx="14"/>
+    <!-- Bottom row -->
+    <rect x="160" y="384" width="64" height="64" rx="14"/>
+    <rect x="224" y="384" width="64" height="64" rx="14"/>
+    <rect x="288" y="384" width="64" height="64" rx="14"/>
+  </g>
+
+  <!-- Snake eyes on top-right segment (head) -->
+  <g fill="#02020a">
+    <circle cx="332" cy="152" r="8"/>
+    <circle cx="332" cy="172" r="8"/>
+  </g>
+</svg>
