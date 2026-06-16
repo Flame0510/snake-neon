@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Snake Neon</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #02020a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  #wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+  canvas { display: block; max-width: 100vmin; height: auto; }
+  #canvas-container {
+    position: relative;
+    line-height: 0;
+    width: fit-content;
+  }
+  /* display: flex would override the [hidden] attribute — guard it explicitly */
+  #btn-pause[hidden] { display: none !important; }
+  #btn-pause {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(2, 2, 10, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    backdrop-filter: blur(6px);
+    transition: background 0.1s, color 0.1s, border-color 0.1s;
+    z-index: 10;
+  }
+  #btn-pause:active {
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+  #legend {
+    color: rgba(255,255,255,0.22);
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    text-align: center;
+    line-height: 1.9;
+  }
+  #legend span { color: rgba(255,255,255,0.44); }
+</style>
+</head>
+<body>
+<div id="wrapper">
+  <div id="canvas-container">
+    <canvas id="game"></canvas>
+    <button id="btn-pause" hidden aria-label="Pausa">⏸</button>
+  </div>
+  <div id="legend">
+    <span>↑↓←→</span> oppure <span>WASD</span> &nbsp;·&nbsp;
+    <span>SPAZIO</span> avvia / pausa &nbsp;·&nbsp;
+    <span>P</span> pausa &nbsp;·&nbsp;
+    il serpente attraversa i bordi
+  </div>
+</div>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

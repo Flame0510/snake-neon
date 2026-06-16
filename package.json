@@ -1,0 +1,11 @@
+{
+  "name": "snake-neon",
+  "version": "1.0.0",
+  "description": "Classic Snake with neon aesthetics — vanilla JS ES6 modules, GoF design patterns (State, Observer, Factory, Object Pool, Singleton, Command).",
+  "scripts": {
+    "dev": "npx serve -p 4500 ."
+  },
+  "keywords": ["game", "snake", "canvas", "vanilla-js", "design-patterns", "gof"],
+  "license": "MIT",
+  "type": "module"
+}
