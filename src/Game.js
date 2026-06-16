@@ -55,7 +55,7 @@ export class Game {
     this.renderer = new Renderer(canvas);
 
     const input = new InputManager(this.bus);
-    input.bindTouch(canvas);
+    input.bindTouch();
 
     AudioManager.getInstance().subscribe(this.bus);
 
@@ -97,8 +97,8 @@ export class Game {
     if (!this.#pauseBtn) return;
     const playing = this.#currentState === this.states.playing;
     const paused  = this.#currentState === this.states.paused;
-    this.#pauseBtn.hidden        = !playing && !paused;
-    this.#pauseBtn.textContent   = paused ? '▶' : '⏸';
+    this.#pauseBtn.hidden       = !playing && !paused;
+    this.#pauseBtn.innerHTML    = paused ? '▶' : '<span class="icon-pause"></span>';
     this.#pauseBtn.setAttribute('aria-label', paused ? 'Riprendi' : 'Pausa');
   }
 

@@ -63,6 +63,21 @@
     color: #fff;
     border-color: rgba(255, 255, 255, 0.4);
   }
+  .icon-pause {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+  }
+  .icon-pause::before,
+  .icon-pause::after {
+    content: '';
+    display: block;
+    width: 3px;
+    height: 14px;
+    background: currentColor;
+    border-radius: 1px;
+  }
   #legend {
     color: rgba(255,255,255,0.22);
     font-size: 11px;
@@ -77,7 +92,7 @@
 <div id="wrapper">
   <div id="canvas-container">
     <canvas id="game"></canvas>
-    <button id="btn-pause" hidden aria-label="Pausa">⏸</button>
+    <button id="btn-pause" hidden aria-label="Pausa"><span class="icon-pause"></span></button>
   </div>
   <div id="legend">
     <span>↑↓←→</span> oppure <span>WASD</span> &nbsp;·&nbsp;

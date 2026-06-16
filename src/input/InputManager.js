@@ -37,17 +37,22 @@ export class InputManager {
     if (action) this.#bus.emit('input:action', action);
   }
 
-  bindTouch(canvas) {
+  bindTouch() {
     let startX = 0, startY = 0;
-    canvas.addEventListener('touchstart', e => {
+
+    // Bind to document so swipes work even when the finger drifts outside the canvas.
+    document.addEventListener('touchstart', e => {
       startX = e.touches[0].clientX;
       startY = e.touches[0].clientY;
       e.preventDefault();
     }, { passive: false });
 
-    canvas.addEventListener('touchmove', e => { e.preventDefault(); }, { passive: false });
+    document.addEventListener('touchmove', e => { e.preventDefault(); }, { passive: false });
 
-    canvas.addEventListener('touchend', e => {
+    document.addEventListener('touchend', e => {
+      // Taps on the pause button are handled by its own pointerdown listener.
+      if (e.target.closest('#btn-pause')) return;
+
       const dx = e.changedTouches[0].clientX - startX;
       const dy = e.changedTouches[0].clientY - startY;
       if (Math.hypot(dx, dy) < 12) {
@@ -58,7 +63,6 @@ export class InputManager {
         ? (dx > 0 ? Action.MOVE_RIGHT : Action.MOVE_LEFT)
         : (dy > 0 ? Action.MOVE_DOWN  : Action.MOVE_UP);
       this.#bus.emit('input:action', action);
-      e.preventDefault();
     }, { passive: false });
   }
 
