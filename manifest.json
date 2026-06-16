@@ -1,0 +1,10 @@
+{
+  "name": "Snake Neon",
+  "short_name": "Snake Neon",
+  "description": "Classic Snake with neon aesthetics — vanilla JS, Canvas 2D, zero dependencies.",
+  "start_url": "./",
+  "display": "fullscreen",
+  "background_color": "#02020a",
+  "theme_color": "#00ff88",
+  "orientation": "portrait-primary"
+}
