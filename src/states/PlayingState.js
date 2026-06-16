@@ -18,11 +18,12 @@ export class PlayingState extends State {
 
   enter(game) {
     this.#lastStep = performance.now();
-    // Spawn initial food
-    const foods = game.foods;
-    for (let i = 0; i < 2; i++) {
-      const f = FoodFactory.spawnSafe(foods, game.snake);
-      if (f) foods.push(f);
+    // Spawn initial food only on fresh sessions — not on resume from pause.
+    if (game.foods.length === 0) {
+      for (let i = 0; i < 2; i++) {
+        const f = FoodFactory.spawnSafe(game.foods, game.snake);
+        if (f) game.foods.push(f);
+      }
     }
   }
 
