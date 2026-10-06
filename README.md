@@ -1,5 +1,7 @@
 # Snake Neon 🐍
 
+**Live:** https://snake.micheletornello.com
+
 Classic Snake with a neon arcade aesthetic — built with vanilla JavaScript ES6 modules and Canvas 2D. Zero dependencies, no build step required.
 
 ## Play
